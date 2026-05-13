@@ -1,0 +1,6 @@
+{
+  "name": "Smart POS System",
+  "description": "A production-ready Point of Sale system built with Clean Architecture, featuring product management, categories, and scalable backend structure.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
