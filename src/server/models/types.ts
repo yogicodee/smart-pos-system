@@ -4,7 +4,7 @@ export enum UserRole {
   MANAGER = 'MANAGER'
 }
 
-export type Permission = 
+export type Permission =
   | 'MANAGE_USERS'
   | 'MANAGE_PRODUCTS'
   | 'MANAGE_TRANSACTIONS'
