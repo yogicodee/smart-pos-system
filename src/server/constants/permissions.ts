@@ -19,3 +19,4 @@ export const RolePermissions: Record<UserRole, Permission[]> = {
     'ACCESS_ANALYTICS' // basic dashboard access
   ]
 };
+
