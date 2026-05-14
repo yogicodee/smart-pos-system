@@ -35,7 +35,7 @@ export const authorize = (permission: Permission) => {
     req.user = { id: userId, role: roleHeader };
 
     const userPermissions = RolePermissions[roleHeader];
-    
+
     if (userPermissions.includes(permission)) {
       return next();
     }
