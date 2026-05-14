@@ -1,17 +1,20 @@
 import { TransactionRepository } from '../repositories/TransactionRepository';
 import { ProductRepository } from '../repositories/ProductRepository';
+import { AuditLogRepository } from '../repositories/AuditLogRepository';
 import { Transaction, TransactionItem } from '../models/types';
 
 export class TransactionService {
   private transactionRepository: TransactionRepository;
   private productRepository: ProductRepository;
+  private auditLogRepository: AuditLogRepository;
 
   constructor() {
     this.transactionRepository = new TransactionRepository();
     this.productRepository = new ProductRepository();
+    this.auditLogRepository = new AuditLogRepository();
   }
 
-  async processTransaction(data: { paidAmount: number; items: { productId: string; quantity: number }[] }) {
+  async processTransaction(data: { paidAmount: number; items: { productId: string; quantity: number }[] }, userId: string = 'SYSTEM') {
     const transactionId = Math.random().toString(36).substr(2, 9);
     const transactionItems: TransactionItem[] = [];
     let totalAmount = 0;
@@ -60,7 +63,18 @@ export class TransactionService {
       createdAt: new Date()
     };
 
-    return await this.transactionRepository.create(transaction);
+    const savedTransaction = await this.transactionRepository.create(transaction);
+
+    // Audit Logging
+    await this.auditLogRepository.create({
+      userId,
+      userName: userId === 'SYSTEM' ? 'Automated System' : `User ${userId}`,
+      action: 'CREATE_TRANSACTION',
+      module: 'POS_TERMINAL',
+      details: `Sold ${transactionItems.length} items for Rp ${totalAmount.toLocaleString()}`
+    });
+
+    return savedTransaction;
   }
 
   async getAllTransactions(params: any) {
