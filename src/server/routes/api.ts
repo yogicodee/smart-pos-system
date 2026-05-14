@@ -2,14 +2,24 @@ import { Router } from 'express';
 import { ProductController } from '../controllers/ProductController';
 import { TransactionController } from '../controllers/TransactionController';
 import { ExportController } from '../controllers/ExportController';
+import { AuditLogController } from '../controllers/AuditLogController';
 import { authorize } from '../middleware/authMiddleware';
 
 export const apiRouter = Router();
 const productController = new ProductController();
 const transactionController = new TransactionController();
 const exportController = new ExportController();
+const auditLogController = new AuditLogController();
+const analyticsController = new AnalyticsController();
+
+// Analytics Routes
+apiRouter.get('/analytics', authorize('ACCESS_ANALYTICS'), analyticsController.getStats);
 
 // Product Routes
+// ... (keep existing)
+
+// Audit Log Routes
+apiRouter.get('/audit-logs', authorize('ACCESS_ANALYTICS'), auditLogController.index);
 apiRouter.get('/products', productController.index);
 apiRouter.get('/products/:id', productController.show);
 apiRouter.post('/products', authorize('MANAGE_PRODUCTS'), productController.store);
