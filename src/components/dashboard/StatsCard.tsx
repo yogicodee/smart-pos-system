@@ -14,7 +14,7 @@ interface StatsCardProps {
 
 export function StatsCard({ title, value, icon, trend, className = '' }: StatsCardProps) {
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ y: -4 }}
       className={`bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 ${className}`}
     >
