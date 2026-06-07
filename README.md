@@ -2,6 +2,10 @@
 
 A modern, high-performance, and scalable Point of Sale (POS) system designed for enterprise-level retail management. Built with a focus on **Clean Architecture**, **Type Safety**, and a **SaaS-inspired UI/UX**.
 
+# Preview
+<img width="1344" height="649" alt="image" src="https://github.com/user-attachments/assets/49b9f72f-8c25-4ea2-a872-0f319281951e" />
+
+
 ## ✨ Key Highlights
 - **SaaS Modern UI:** Clean, professional dashboard with interactive analytics.
 - **RBAC Security:** Enterprise-grade Role-Based Access Control (Admin, Manager, Cashier).
