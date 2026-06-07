@@ -4,6 +4,8 @@ A modern, high-performance, and scalable Point of Sale (POS) system designed for
 
 # Preview
 <img width="1344" height="649" alt="image" src="https://github.com/user-attachments/assets/49b9f72f-8c25-4ea2-a872-0f319281951e" />
+<img width="1347" height="629" alt="image" src="https://github.com/user-attachments/assets/8498bcd3-d988-4140-9f3d-b024ba8fa8b5" />
+
 
 
 ## ✨ Key Highlights
